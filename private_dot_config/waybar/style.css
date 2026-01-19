@@ -1,0 +1,320 @@
+@define-color green0 rgb(1,21,9);
+@define-color green1 rgb(1,30,13);
+@define-color green2 rgb(2,41,18);
+@define-color green3 rgb(3,55,23);
+@define-color green4 rgb(3,71,30);
+@define-color green5 rgb(4,90,39);
+@define-color green6 rgb(6,112,48);
+@define-color green7 rgb(7,138,59);
+
+* {
+    font-family: 'JetBrainsMono Nerd Font Propo';
+    font-size: 14px;
+}
+
+
+
+window#waybar {
+    background-color: rgba(3,55,23,0.5);
+    transition-property: background-color;
+    transition-duration: .5s;
+    opacity: 1;
+    margin: 5px 5px 5px 5px;
+}
+
+window#waybar.modules-left {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#wireplumber {
+    padding: 0px 10px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces,
+#temperature,
+#cpu,
+#memory,
+#backlight,
+#backlight-slider,
+#bluetooth,
+#wireplumber,
+#network,
+#battery,
+#clock {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+    padding: 5 10px;
+    background-color: transparent;
+    color: #a1ff81; 
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 0px #ffffff;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+
+
+
+/*modules-left*/
+
+#window{
+    border-radius: 8px 0px 0px 8px;
+    background-color: @green6;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 5px;
+}
+
+#custom-rightarrow.1 {
+    background-color: @green5;
+    color: @green6;
+}
+
+#workspaces {
+    background-color: @green5;
+    padding-right: 4px;
+    color: #a1ff81; 
+}
+
+#custom-rightarrow.2 {
+    background-color: @green4;
+    color: @green5;
+}
+
+#temperature {
+    background-color: @green4;
+    color: #a1ff81; 
+}
+
+#custom-rightarrow.3 {
+    background-color: @green3;
+    color: @green4;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+    color: #a1ff81; 
+}
+
+#cpu {
+    background-color: @green3;
+    color: #a1ff81; 
+}
+
+#custom-rightarrow.4 {
+    background-color: @green2;
+    color: @green3;
+}
+
+#memory {
+    background-color: @green2;
+    color: #a1ff81; 
+}
+
+#custom-rightarrow.5 {
+    background-color: rgba(0,0,0,0);
+    color: @green2;
+}
+
+
+
+
+/*modules-center*/
+
+#custom-leftarrow.trans {
+    background-color: rgba(0,0,0,0);
+    color: @green2;
+}
+
+#backlight {
+    background-color: @green2;
+    color: #a1ff81; 
+}
+
+#backlight-slider {
+    background-color: @green2;
+}
+
+
+#backlight-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    background-color: @green0;
+    border: none;
+    box-shadow: none;
+}
+#backlight-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background: none;
+    color: @green1;
+}
+#backlight-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    border-width: 1.5px;
+    border-color: @green6;
+    background: none;
+    background-color: @green4;
+}
+#custom-rightarrow.trans {
+    background-color: rgba(0,0,0,0);
+    color: @green2;
+}
+
+
+
+
+/*modules-right*/
+
+#custom-leftarrow.1 {
+    background-color: rgba(0,0,0,0);
+    color: @green2;
+}
+
+#bluetooth {
+    padding-right: 5px;
+    background-color: @green2;
+    color: #a1ff81;
+}
+
+#custom-leftarrow.2 {
+    background-color: @green2;
+    color: @green3;
+}
+
+#wireplumber {
+    background-color: @green3;
+    color: #a1ff81;
+}
+
+#custom-leftarrow.3 {
+    background-color: @green3;
+    color: @green4;
+}
+
+#network {
+    background-color: @green4;
+    color: #53d2ff; 
+}
+
+#network.disconnected {
+    background-color: @green4;
+    color: #ff7570; 
+}
+
+#custom-leftarrow.4 {
+    background-color: @green4;
+    color: @green5;
+}
+
+#battery {
+    background-color: @green5;
+    color: #a1ff81; 
+}
+
+#battery.charging, #battery.plugged {
+    color: #53d2ff;
+    background-color: @green5;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @green5;
+    color: #ff7570;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-leftarrow.5 {
+    background-color: @green5;
+    color: @green6;
+}
+
+#clock {
+    border-radius: 0px 8px 8px 0px;
+    background-color: @green6;
+    margin-right: 5px;
+    color: #a1ff81; 
+}
+
+#custom-leftarrow {
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 20pt;
+}
+
+#custom-rightarrow {
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 20pt;
+
+}
