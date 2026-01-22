@@ -1,0 +1,26 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias n='nnn'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias wbr='waybar & killall waybar && waybar &'
+alias playit='cd ~/Documents && ./playit-linux-amd64'
+alias openv='openv.sh'
+PS1='[\u@\h \W]\$ '
+
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux$PATH
+export PATH=$PATH:/home/tim/Documents/platform-tools
+export PATH=$PATH:/usr/bin/git
+export PATH=$PATH:~/.local/bin
+#neofetch --ascii /home/tim/Pictures/neofetchascii/wiltedrose.txt --ascii_colors 1 2 9 10 
+fastfetch
+#aliases
+
+touchp() {
+    mkdir -p "$(dirname "$1")" && touch "$1"
+}
